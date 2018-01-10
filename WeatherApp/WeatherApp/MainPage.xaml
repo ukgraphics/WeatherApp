@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WeatherApp"
+             xmlns:c1input="clr-namespace:C1.Xamarin.Forms.Input;assembly=C1.Xamarin.Forms.Input"
+             xmlns:c1grid="clr-namespace:C1.Xamarin.Forms.Grid;assembly=C1.Xamarin.Forms.Grid"
+             x:Class="WeatherApp.MainPage"
+             Padding="20">
+
+    <StackLayout>
+        <Label Text="天気情報を取得する地域を選択" FontSize="Medium"/>
+        <c1input:C1ComboBox x:Name="cbxCity" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+        <Label Text="予報" FontSize="Medium"/>
+        <Grid VerticalOptions="FillAndExpand">
+            <c1grid:FlexGrid x:Name="grid" AutoGenerateColumns="False" HeadersVisibility="Column" GridLinesVisibility="None" >
+                <c1grid:FlexGrid.Columns>
+                    <c1grid:GridColumn Header="日付" Binding="date" />
+                    <c1grid:GridColumn Header="空模様" Binding="telop" />
+                </c1grid:FlexGrid.Columns>
+            </c1grid:FlexGrid>
+        </Grid>
+        <Label Text="概況" FontSize="Medium"/>
+        <ScrollView>
+            <Label x:Name="lblDesc" FontSize="Small" HorizontalOptions="FillAndExpand"/>
+        </ScrollView>
+    </StackLayout>
+
+</ContentPage>
