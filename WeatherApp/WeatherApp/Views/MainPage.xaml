@@ -9,39 +9,38 @@
         <OnPlatform x:TypeArguments="Thickness"
       iOS="10, 20, 10, 0" Android="10, 20, 10, 0" WinPhone="10, 20, 10, 0" />
     </ContentPage.Padding>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="300" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-        <Label Grid.Row="0" Text="天気情報を取得する地域を選択" FontSize="Medium" />
-        <c1input:C1ComboBox Grid.Row="1" x:Name="cbxCity" HorizontalOptions="FillAndExpand" IsEditable="False" 
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="300"  />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="天気情報を取得する地域を選択" FontSize="Large" />
+            <c1input:C1ComboBox Grid.Row="1" x:Name="cbxCity" HorizontalOptions="FillAndExpand" IsEditable="False" 
                             ButtonBackgroundColor="LightGray" ButtonColor="SlateGray" TextColor="Black" BackgroundColor="White" 
                             SelectedBackgroundColor="LightGray" HeaderBorderWidth="0" HeaderBackgroundColor="WhiteSmoke"/>
-        <Label Grid.Row="2" Text="予報" FontSize="Medium" />
-        <!--<Grid Grid.Row="3" >-->
-        <c1grid:FlexGrid Grid.Row="3" x:Name="grid" AutoGenerateColumns="False" HeadersVisibility="Column" GridLinesVisibility="None" 
-                         IsReadOnly="True" ColumnHeaderBackgroundColor="LightGray" ColumnHeaderTextColor="Black" BorderColor="LightGray">
+            <Label Grid.Row="2" Text="予報" FontSize="Large" />
+            <c1grid:FlexGrid Grid.Row="3" x:Name="grid" IsReadOnly="True" AllowSorting="False" AutoGenerateColumns="False" 
+                         HeadersVisibility="Column" GridLinesVisibility="None" 
+                         ColumnHeaderBackgroundColor="LightGray" ColumnHeaderTextColor="Black" BorderColor="LightGray"
+                         SelectionBackgroundColor="White" SelectionTextColor="Black" HorizontalOptions="FillAndExpand">
                 <c1grid:FlexGrid.Columns>
-                    <c1grid:GridColumn Header="空模様" Width="Auto" >
+                    <c1grid:GridColumn Header="空模様" Width="Auto"  >
                         <c1grid:GridColumn.CellTemplate>
                             <DataTemplate>
                                 <Image Source="{Binding icon.Source}" WidthRequest="50" HeightRequest="31" />
                             </DataTemplate>
                         </c1grid:GridColumn.CellTemplate>
                     </c1grid:GridColumn>
-                    <c1grid:GridColumn Header="予報内容" Binding="description" Width="Auto" />
+                    <c1grid:GridColumn Header="予報内容" Binding="description" Width="*" WordWrap="True" />
                 </c1grid:FlexGrid.Columns>
             </c1grid:FlexGrid>
-        <!--</Grid>-->
-        <Label Grid.Row="4" Text="概況" FontSize="Medium" />
-        <ScrollView Grid.Row="5">
-            <Label x:Name="lblDesc" FontSize="Small"  />
-        </ScrollView>
-    </Grid>
+            <Label Grid.Row="4" Text="概況" FontSize="Large" />
+            <Label Grid.Row="5" x:Name="lblDesc" FontSize="Small"  />
+        </Grid>
+    </ScrollView>
 </ContentPage>
