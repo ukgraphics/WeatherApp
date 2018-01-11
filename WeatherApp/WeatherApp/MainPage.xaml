@@ -4,25 +4,44 @@
              xmlns:local="clr-namespace:WeatherApp"
              xmlns:c1input="clr-namespace:C1.Xamarin.Forms.Input;assembly=C1.Xamarin.Forms.Input"
              xmlns:c1grid="clr-namespace:C1.Xamarin.Forms.Grid;assembly=C1.Xamarin.Forms.Grid"
-             x:Class="WeatherApp.MainPage"
-             Padding="20">
+             x:Class="WeatherApp.MainPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+      iOS="10, 20, 10, 0" Android="10, 20, 10, 0" WinPhone="10, 20, 10, 0" />
+    </ContentPage.Padding>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="300" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-    <StackLayout>
-        <Label Text="天気情報を取得する地域を選択" FontSize="Medium"/>
-        <c1input:C1ComboBox x:Name="cbxCity" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
-        <Label Text="予報" FontSize="Medium"/>
-        <Grid VerticalOptions="FillAndExpand">
-            <c1grid:FlexGrid x:Name="grid" AutoGenerateColumns="False" HeadersVisibility="Column" GridLinesVisibility="None" >
+        <Label Grid.Row="0" Text="天気情報を取得する地域を選択" FontSize="Medium" />
+        <c1input:C1ComboBox Grid.Row="1" x:Name="cbxCity" HorizontalOptions="FillAndExpand" IsEditable="False" 
+                            ButtonBackgroundColor="LightGray" ButtonColor="SlateGray" TextColor="Black" BackgroundColor="White" 
+                            SelectedBackgroundColor="LightGray" HeaderBorderWidth="0" HeaderBackgroundColor="WhiteSmoke"/>
+        <Label Grid.Row="2" Text="予報" FontSize="Medium" />
+        <!--<Grid Grid.Row="3" >-->
+        <c1grid:FlexGrid Grid.Row="3" x:Name="grid" AutoGenerateColumns="False" HeadersVisibility="Column" GridLinesVisibility="None" 
+                         IsReadOnly="True" ColumnHeaderBackgroundColor="LightGray" ColumnHeaderTextColor="Black" BorderColor="LightGray">
                 <c1grid:FlexGrid.Columns>
-                    <c1grid:GridColumn Header="日付" Binding="date" />
-                    <c1grid:GridColumn Header="空模様" Binding="telop" />
+                    <c1grid:GridColumn Header="空模様" Width="Auto" >
+                        <c1grid:GridColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding icon.Source}" WidthRequest="50" HeightRequest="31" />
+                            </DataTemplate>
+                        </c1grid:GridColumn.CellTemplate>
+                    </c1grid:GridColumn>
+                    <c1grid:GridColumn Header="予報内容" Binding="description" Width="Auto" />
                 </c1grid:FlexGrid.Columns>
             </c1grid:FlexGrid>
-        </Grid>
-        <Label Text="概況" FontSize="Medium"/>
-        <ScrollView>
-            <Label x:Name="lblDesc" FontSize="Small" HorizontalOptions="FillAndExpand"/>
+        <!--</Grid>-->
+        <Label Grid.Row="4" Text="概況" FontSize="Medium" />
+        <ScrollView Grid.Row="5">
+            <Label x:Name="lblDesc" FontSize="Small"  />
         </ScrollView>
-    </StackLayout>
-
+    </Grid>
 </ContentPage>

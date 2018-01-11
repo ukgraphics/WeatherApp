@@ -15,6 +15,7 @@ namespace WeatherApp
         public string CityName {get; set;}
         public string ID { get; set; }
 
+        // リクエストする地域とIDを取得
         public List<City> GetCityId()
         {
             var CityList = new List<City>();

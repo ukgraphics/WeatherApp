@@ -30,7 +30,7 @@ namespace WeatherApp
         public Max max { get; set; }
     }
 
-    public class Image
+    public class ImageIcon
     {
         public int width { get; set; }
         public string url { get; set; }
@@ -44,7 +44,7 @@ namespace WeatherApp
         public string telop { get; set; }
         public string date { get; set; }
         public Temperature temperature { get; set; }
-        public Image image { get; set; }
+        public ImageIcon image { get; set; }
     }
 
     public class Location
@@ -60,7 +60,7 @@ namespace WeatherApp
         public string name { get; set; }
     }
 
-    public class Image2
+    public class ImageRogo
     {
         public int width { get; set; }
         public string link { get; set; }
@@ -74,7 +74,7 @@ namespace WeatherApp
         public List<Provider> provider { get; set; }
         public string link { get; set; }
         public string title { get; set; }
-        public Image2 image { get; set; }
+        public ImageRogo image { get; set; }
     }
 
     public class Description
