@@ -7,7 +7,7 @@
              x:Class="WeatherApp.MainPage">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"
-      iOS="10, 20, 10, 0" Android="10, 20, 10, 0" WinPhone="10, 20, 10, 0" />
+      iOS="10, 20, 10, 10" Android="10, 20, 10, 10" WinPhone="10, 20, 10, 10" />
     </ContentPage.Padding>
     <ScrollView>
         <Grid>
@@ -27,20 +27,20 @@
             <c1grid:FlexGrid Grid.Row="3" x:Name="grid" IsReadOnly="True" AllowSorting="False" AutoGenerateColumns="False" 
                          HeadersVisibility="Column" GridLinesVisibility="None" 
                          ColumnHeaderBackgroundColor="LightGray" ColumnHeaderTextColor="Black" BorderColor="LightGray"
-                         SelectionBackgroundColor="White" SelectionTextColor="Black" HorizontalOptions="FillAndExpand">
+                         SelectionBackgroundColor="White" SelectionTextColor="Black" >
                 <c1grid:FlexGrid.Columns>
-                    <c1grid:GridColumn Header="空模様" Width="Auto"  >
+                    <c1grid:GridColumn Header="空模様" Width="Auto" >
                         <c1grid:GridColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding icon.Source}" WidthRequest="50" HeightRequest="31" />
+                                <Image Source="{Binding icon.Source}"  />
                             </DataTemplate>
                         </c1grid:GridColumn.CellTemplate>
                     </c1grid:GridColumn>
-                    <c1grid:GridColumn Header="予報内容" Binding="description" Width="*" WordWrap="True" />
+                    <c1grid:GridColumn Header="予報内容" Binding="description" Width="Auto" />
                 </c1grid:FlexGrid.Columns>
             </c1grid:FlexGrid>
             <Label Grid.Row="4" Text="概況" FontSize="Large" />
-            <Label Grid.Row="5" x:Name="lblDesc" FontSize="Small"  />
+            <Label Grid.Row="5" x:Name="lblDesc" FontSize="Small" />
         </Grid>
     </ScrollView>
 </ContentPage>
