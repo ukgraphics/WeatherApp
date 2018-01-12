@@ -11,8 +11,10 @@ using Xamarin.Forms;
 
 namespace WeatherApp
 {
+    // Livedoor Weather Web Serviceから天気概況（JSON)と予報（XML）を取得
     public class WeatherInfo
     {
+        // 天気概況を取得
         public static RootObject GetDescription(City city)
         {
             string url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=" + city.ID.ToString();
@@ -23,6 +25,7 @@ namespace WeatherApp
             return weather;
         }
 
+        // 予報を取得
         public static List<Forcast> GetForcast(City city)
         {
             string url2 = "http://weather.livedoor.com/forecast/rss/area/" + city.ID.ToString() + ".xml";
