@@ -22,7 +22,7 @@ namespace WeatherApp
         // リクエストする地域とIDを取得
         public List<City> GetCityId()
         {
-            // コンボボックスに返す地域リスト
+            // コンボボックスに渡す地域のリスト
             var CityList = new List<City>();
 
             // Livedoor Weather Web Serviceで提供している全国の地点定義表
