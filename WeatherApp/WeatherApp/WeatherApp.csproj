@@ -10,7 +10,7 @@
     <PackageReference Include="C1.Xamarin.Forms.Grid" Version="2.5.20173.238" />
     <PackageReference Include="C1.Xamarin.Forms.Input" Version="2.5.20173.238" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
   </ItemGroup>
 
   <ItemGroup>
